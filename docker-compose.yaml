@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-rc-management
+    container_name: node-js-rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - ./rabbitmq_dados:/var/lib/rabbitmq/
+    environment:
+      - RABBITMQ_DEFAULT_USER=docker
+      - RABBITMQ_DEFAULT_PASS=docker
+  
