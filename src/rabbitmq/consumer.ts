@@ -3,8 +3,8 @@ import { logger } from "../../util/log";
 import {
   ConsumerRepository,
   ConsumerParams,
-} from "../core/repositories/consumer/ConsumerRepository";
-import { RabbitMQ } from "./RabbitMQ";
+} from "../core/repositories/consumer/consumer-repository";
+import { RabbitMQ } from "./rabbit-m-q";
 
 export class Consumer extends RabbitMQ implements ConsumerRepository {
   constructor(protected url: string) {

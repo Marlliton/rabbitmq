@@ -1,5 +1,5 @@
-import { Produto } from "./core/produto/Produto";
-import { Publisher } from "./rabbitmq/Publisher";
+import { Produto } from "./core/produto/produto";
+import { Publisher } from "./rabbitmq/publisher";
 
 const urlConnection = "amqp://docker:docker@localhost:5672";
 

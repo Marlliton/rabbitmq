@@ -1,9 +1,10 @@
 import { logger } from "../../../util/log";
-import { ProducerRepository } from "../repositories/producer/ProducerRepository";
+import { RabbitMQConsts } from "../../constants/rabbitmq-consts";
+import { ProducerRepository } from "../repositories/producer/producer-repository";
 
 export class Produto {
-  private exchangeName = "exchange-teste";
-  private routeKey = "compra-confirmada";
+  private exchangeName = RabbitMQConsts.exchangeName;
+  private routeKey = RabbitMQConsts.routeConfirmedPurchaseKey
   constructor(private producer: ProducerRepository) {}
 
   async compraConfirmada() {

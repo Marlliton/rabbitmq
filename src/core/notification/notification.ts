@@ -1,5 +1,5 @@
 import { logger } from "../../../util/log";
-import { ConsumerRepository } from "../repositories/consumer/ConsumerRepository";
+import { ConsumerRepository } from "../repositories/consumer/consumer-repository";
 
 export class Notification {
   constructor() {}
