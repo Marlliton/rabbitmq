@@ -1,4 +1,4 @@
-import { ProducerParams, ProducerRepository } from "../core/producer/ProducerRepository";
+import { ProducerParams, ProducerRepository } from "../core/repositories/producer/ProducerRepository";
 import { RabbitMQ } from "./RabbitMQ";
 
 export class Publisher extends RabbitMQ implements ProducerRepository {

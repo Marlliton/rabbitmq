@@ -1,6 +1,6 @@
 import { ConsumeMessage } from "amqplib";
 import { logger } from "../../util/log";
-import { ConsumerRepository } from "../core/consumer/ConsumerRepository";
+import { ConsumerRepository } from "../core/repositories/consumer/ConsumerRepository";
 import { RabbitMQ } from "./RabbitMQ";
 
 export class Consumer extends RabbitMQ implements ConsumerRepository{
