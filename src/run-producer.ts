@@ -1,17 +1,17 @@
-import { Consumer } from "./core/consumer";
-import { Producer } from "./core/producer";
-import { RabbitMQServer } from "./rabbitmq-server/RabbitMQServer";
+import { Producer } from "./core/producer/Producer";
+import { Publisher } from "./rabbitmq/Publisher";
 
 const urlConnection = "amqp://docker:docker@localhost:5672";
-const queue = "fila-teste"
+const exchangeName = "exchange-teste"
+const routeKey = "route-teste"
 
-const producer = new Producer(new RabbitMQServer(urlConnection));
+const producer = new Producer(new Publisher(urlConnection));
 
 let count = 0
 setInterval(() => {
   count += 1
   const payload = {
-    assunto: "teste" + count,
+    assunto: `Mensagem teste n° ${count}`,
   };
-  producer.sendMessage(queue, JSON.stringify(payload));
+  producer.sendMessage(exchangeName, routeKey, JSON.stringify(payload));
 }, 600);

@@ -1,10 +1,11 @@
-import { Consumer } from "./core/consumer";
-import { RabbitMQServer } from "./rabbitmq-server/RabbitMQServer";
+import { Consumer } from "./core/consumer/Consumer";
+import { Consumer as ConsumerRabbit } from "./rabbitmq/Consumer";
 
 const urlConnection = "amqp://docker:docker@localhost:5672";
 const queue = "fila-teste"
+const exchangeName = "exchange-teste"
+const routeKey = "route-teste"
 
-const consumer = new Consumer(new RabbitMQServer(urlConnection))
+const consumer = new Consumer(new ConsumerRabbit(urlConnection))
 
-
-consumer.consume(queue)
+consumer.consume(exchangeName, queue, routeKey)

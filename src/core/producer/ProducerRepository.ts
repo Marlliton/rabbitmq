@@ -1,3 +1,9 @@
+export type ProducerParams = {
+  exchangeName: string
+  routeKey: string
+  payload: string
+}
+
 export interface ProducerRepository {
-  publishOnQueue(queueName: string, payload: string): Promise<boolean>
+  publishInExchange(params: ProducerParams): Promise<boolean>
 }
