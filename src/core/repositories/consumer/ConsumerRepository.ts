@@ -1,10 +1,14 @@
 import { ConsumeMessage } from "amqplib";
 
+type CallbackParam = (message: ConsumeMessage | null) => void;
+
+export type ConsumerParams = {
+  exchangeName: string;
+  queueName: string;
+  routeKey: string;
+  callback: CallbackParam;
+};
+
 export interface ConsumerRepository {
-  consume(
-    exchangeName: string,
-    queueName: string,
-    routeKey: string,
-    callback: (message: ConsumeMessage | null) => void
-  ): Promise<any>;
+  consume(params: ConsumerParams): Promise<any>;
 }

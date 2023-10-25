@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start:producer": "nodemon --exec bun run ./src/run-producer.ts",
+    "start:consumer": "nodemon --exec bun run ./src/run-consumer.ts"
+  },
   "dependencies": {
     "amqplib": "^0.10.3",
     "pino": "^8.16.1",
@@ -11,6 +15,7 @@
   "devDependencies": {
     "@types/amqplib": "^0.10.3",
     "@types/node": "^20.8.8",
+    "nodemon": "^3.0.1",
     "typescript": "^5.2.2"
   }
 }

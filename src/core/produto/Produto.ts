@@ -3,7 +3,7 @@ import { ProducerRepository } from "../repositories/producer/ProducerRepository"
 
 export class Produto {
   private exchangeName = "exchange-teste";
-  private routeKey = "route-teste";
+  private routeKey = "compra-confirmada";
   constructor(private producer: ProducerRepository) {}
 
   async compraConfirmada() {

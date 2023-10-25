@@ -1,14 +1,19 @@
 import { Email } from "./core/email/Email";
+import { Logistic } from "./core/logistic/Logistic";
 import { Notification } from "./core/notification/Notification";
-import { Consumer as ConsumerRabbit } from "./rabbitmq/Consumer";
+import { Consumer } from "./rabbitmq/Consumer";
 
 const urlConnection = "amqp://docker:docker@localhost:5672";
-const queue = "fila-teste"
-const exchangeName = "exchange-teste"
-const routeKey = "route-teste"
+const params = {
+  exchangeName: "exchange-teste",
+  routeKey: "compra-confirmada",
+}
 
-const email = new Email(new ConsumerRabbit(urlConnection))
-const notification = new Notification(new ConsumerRabbit(urlConnection))
+const consumer = new Consumer(urlConnection);
+const email = new Email();
+const notification = new Notification();
+const logistic = new Logistic();
 
-email.send(exchangeName, queue, routeKey)
-notification.notify(exchangeName, queue, routeKey)
+consumer.consume({ ...params, queueName: "email-send", callback: email.send });
+consumer.consume({ ...params, queueName: "notification-send", callback: notification.notify });
+consumer.consume({ ...params, queueName: "separation-logistic", callback: logistic.separationProduct });
