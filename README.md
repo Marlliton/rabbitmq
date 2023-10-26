@@ -12,3 +12,6 @@
 - Instale as dependências com `npm i` 
 - Suba o container docker rodando o comando `docker compose up -d` para a versão 2 do docker ou comando equivalente para o mesmo comando em versões anteriores
 
+### Executando o producer
+Rode o comando `npm run start:producer` ou `yarn start:producer`
+Rode o comando `npm run start:consumer` ou `yarn start:consumer`

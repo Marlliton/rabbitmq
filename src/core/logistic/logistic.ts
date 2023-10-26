@@ -21,5 +21,7 @@ export class Logistic {
         ...dados,
       }),
     });
+
+    return !Object.keys(dados).length ? false : true;
   }
 }

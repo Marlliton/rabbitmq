@@ -6,9 +6,11 @@ export class Email {
 
   async send(dados: any) {
     logger.info(`
-        \n------------------- Email ------------------
-        ${dados.customer.name} sua compra foi aprovada
-        Email informado: ${dados.customer.email}
-      `);
+    \n------------------- Email ------------------
+    ${dados.customer.name} sua compra foi aprovada
+    Email informado: ${dados.customer.email}
+    `);
+    
+    return !Object.keys(dados).length ? false : true;
   }
 }

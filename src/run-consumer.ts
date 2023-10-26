@@ -33,6 +33,9 @@ consumer.consume({
   queueName: "separation-logistic",
   callback: logistic.separationProduct.bind(logistic),
 });
+
+
+// -------------------------------------------------------------
 consumer.consume({
   exchangeName: RabbitMQConsts.exchangeName,
   routeKey: RabbitMQConsts.routeConfirmedSeparationLogisticKey,

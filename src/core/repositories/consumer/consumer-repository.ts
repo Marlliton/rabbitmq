@@ -1,6 +1,6 @@
 import { ConsumeMessage } from "amqplib";
 
-type CallbackParam = (message: ConsumeMessage | null) => void;
+type CallbackParam = (message: ConsumeMessage | null) => Promise<boolean>;
 
 export type ConsumerParams = {
   exchangeName: string;

@@ -9,5 +9,7 @@ export class Notification {
         \n------------ WhatsApp ------------ \n
         COMPRA DE ${dados.name} APROVADA
       `);
+
+    return !Object.keys(dados).length ? false : true;
   }
 }

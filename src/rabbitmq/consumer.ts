@@ -20,12 +20,16 @@ export class Consumer extends RabbitMQ implements ConsumerRepository {
     await this.channel.bindQueue(queueName, exchangeName, routeKey);
     logger.warn("Esperando por mensagens");
 
-    return await this.channel.consume(queueName, (message) => {
+    return await this.channel.consume(queueName, async (message) => {
       if (!message) return;
       const content = JSON.parse(message?.content.toString())
-      callback(content);
+      const success = await callback(content);
 
-      this.channel.ack(message);
+      if(success) {
+        return this.channel.ack(message);
+      }
+
+      return this.channel.nack(message)
     });
   }
 }
